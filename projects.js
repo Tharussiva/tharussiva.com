@@ -117,10 +117,25 @@ const projects = [
     title: "SCUM BOY MILLIONAIRE",
     media: [
       { type: "image", src: "Assets/Projects/HOFNA/HOFNA-Scummillionaire.PNG" },
-      
+
     ]
   },
 
+  {
+    title: "BOUTEKKA.COM",
+    media: [
+      { type: "video", src: "Assets/Projects/BOU TEKKA/Boutekka-web-1.MP4" },
+      { type: "video", src: "Assets/Projects/BOU TEKKA/Boutekka-web-2.MP4" },
+      { type: "video", src: "Assets/Projects/BOU TEKKA/Boutekka-web-3.MP4" },
+    ]
+  },
 
+  {
+    title: "OZZY VICE VERSA 25",
+    media: [
+      { type: "video", src: "Assets/Projects/OZZY/Ozzy-web-01.MP4" },
+      { type: "image", src: "Assets/Projects/OZZY/Merch-03.PNG" },
+    ]
+  },
 
 ];
