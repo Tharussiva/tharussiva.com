@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+.page-section-full,
+.project-section {
+  scroll-snap-align: start;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.page-section-full {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+}
+
+.bg-image-full {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+@font-face {
+  font-family: 'logoFont';
+  src: url('fonts/AvianoFlareBlack.woff') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ibmMono';
+  src: url('fonts/IBMPlexMono-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.logo-type {
+  font-family: 'logoFont', sans-serif;
+  font-weight: 700;
+}
+
+.logo-symbol-r {
+  font-family: 'ibmMono', monospace;
+  font-size: .7rem;
+  font-weight: 700;
+}
+
+.nav-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: .5rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  z-index: 1000;
+  gap: 5rem;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-project-title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.nav-logo {
+  font-family: 'logoFont', monospace;
+  font-size: .7rem;
+  font-weight: 700;
+  color: #e1e1e1;
+  line-height: 1;
+  margin: 0;
+}
+
+.nav-item {
+  font-family: 'ibmMono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #e1e1e1;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* ── Project Sections ── */
+
+.project-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  --section-pad: 3rem;
+}
+
+.project-media {
+  position: absolute;
+  inset: var(--section-pad);
+}
+
+.project-media img,
+.project-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── End Project Sections ── */
