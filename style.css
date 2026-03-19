@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  background-color: #000;
 }
 
 html {
@@ -139,55 +138,3 @@ nav {
 }
 
 /* ── End Project Sections ── */
-
-/* ── Grid View ── */
-
-.nav-item-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.nav-item-btn {
-  opacity: 0.35;
-}
-
-.nav-item-btn.active {
-  opacity: 1;
-}
-
-.view-toggle-bottom {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  z-index: 1000;
-  display: flex;
-  gap: 1rem;
-  opacity: 0;
-}
-
-html.grid-mode {
-  scroll-snap-type: none;
-}
-
-#projects.grid-mode {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 4px;
-  padding: 4px;
-}
-
-.grid-mode .project-section {
-  aspect-ratio: 1;
-  height: auto;
-  scroll-snap-align: none;
-  cursor: pointer;
-  --section-pad: 8px;
-}
-
-.grid-mode .project-section:hover {
-  opacity: 0.7;
-}
-
-/* ── End Grid View ── */
