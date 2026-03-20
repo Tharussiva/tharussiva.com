@@ -39,6 +39,11 @@ gsap.registerPlugin(ScrollTrigger);
     // Hide chars below their mask
     gsap.set('.char-inner', { xPercent: -110 });
 
+    // Lock preloader-bg to a concrete pixel height before animating
+    // (inset:0 in CSS covers all edges; we convert to explicit px so GSAP
+    // can tween height/top cleanly without fighting the CSS bottom:0)
+    gsap.set(preloaderBg, { height: preloaderBg.offsetHeight, bottom: 'auto' });
+
     // Build timeline — preloader-bg collapses via height (no clip-path, avoids
     // a mobile Safari first-paint bug where fixed+clip-path can render invisible)
     gsap.timeline({
