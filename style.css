@@ -70,6 +70,7 @@ html {
 .nav-wrapper.is-preloading {
   top: 0;
   height: 100vh;
+  height: 100dvh;
 }
 
 nav {
