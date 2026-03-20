@@ -16,26 +16,17 @@ gsap.registerPlugin(ScrollTrigger);
     ).join('');
   });
 
-  // 2. Measure natural collapsed dimensions via a hidden clone so we never
-  //    remove is-preloading before GSAP takes over (prevents the flash on
-  //    mobile Safari where a forced reflow between the two ops causes a paint)
-  const clone = nav.cloneNode(true);
-  clone.classList.remove('is-preloading');
-  clone.style.cssText += ';visibility:hidden;pointer-events:none';
-  document.body.appendChild(clone);
-  const naturalTop    = clone.getBoundingClientRect().top;
-  const naturalHeight = clone.offsetHeight;
-  document.body.removeChild(clone);
+  // 2. Remove preloading class to measure natural collapsed dimensions
+  nav.classList.remove('is-preloading');
+  const naturalTop    = nav.getBoundingClientRect().top;
+  const naturalHeight = nav.offsetHeight;
 
   // Store for use by intro overlay
   nav.dataset.naturalTop    = naturalTop;
   nav.dataset.naturalHeight = naturalHeight;
 
-  // 3. GSAP takes over fullscreen BEFORE removing is-preloading — no intermediate state
-  // Use window.innerHeight so it matches the actual visible area on iOS Safari
-  // (100vh on iOS equals the larger "bars hidden" height, causing bleed-through)
-  gsap.set(nav, { top: 0, height: window.innerHeight });
-  nav.classList.remove('is-preloading'); // safe now — GSAP inline styles hold fullscreen
+  // 3. Set full-screen via GSAP for animation
+  gsap.set(nav, { top: 0, height: '100vh' });
 
   // Measure logo position inside full-screen nav, calculate center offset
   const logoRect = logo.getBoundingClientRect();
@@ -45,11 +36,6 @@ gsap.registerPlugin(ScrollTrigger);
 
   // Hide chars below their mask
   gsap.set('.char-inner', { xPercent: -110 });
-
-  // On mobile the logo travels close to the nav links, so delay chars
-  // until just before the logo lands to avoid overlap
-  const isMobile = window.matchMedia('(max-width: 768px)').matches;
-  const charStartPos = isMobile ? '>-0.3' : '<0.25';
 
   // 4. Build timeline
   gsap.timeline({
@@ -78,7 +64,7 @@ gsap.registerPlugin(ScrollTrigger);
     duration: 0.5,
     ease: 'power2.out',
     stagger: 0.033,
-  }, charStartPos);
+  }, '<0.25'); // slight offset after logo starts
 })();
 // ── End Preloader ──
 
@@ -182,7 +168,7 @@ if (firstSection) {
 
     if (tl) tl.kill();
     tl = gsap.timeline()
-      .to(nav, { top: 0, height: window.innerHeight, duration: 0.8, ease: 'power3.inOut' })
+      .to(nav, { top: 0, height: '100vh', duration: 0.8, ease: 'power3.inOut' })
       .to(introOverlay, { autoAlpha: 1, duration: 0.3 }, '-=0.1')
       .fromTo(introSections,
         { y: 12, autoAlpha: 0 },
