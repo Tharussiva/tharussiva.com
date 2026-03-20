@@ -19,6 +19,10 @@ gsap.registerPlugin(ScrollTrigger);
   // Wait for fonts before measuring — custom font changes logo dimensions,
   // causing wrong cx/cy if measured before it loads (first visit, no cache)
   document.fonts.ready.then(() => {
+    // Reveal nav now that we're about to position the logo — prevents the
+    // flash of nav content visible above the preloader-bg before JS runs
+    nav.classList.remove('is-preloading');
+
     // Measure nav's natural position (nav sits at its final position throughout)
     const naturalTop    = nav.getBoundingClientRect().top;
     const naturalHeight = nav.offsetHeight;
@@ -86,6 +90,7 @@ projects.forEach(project => {
       el.loop = true;
       el.playsInline = true;
       el.preload = 'none';
+      if (item.poster) el.poster = item.poster;
       el.setAttribute('playsinline', '');
     } else {
       el = document.createElement('img');

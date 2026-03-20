@@ -79,6 +79,10 @@ html {
   gap: 5rem;
 }
 
+.nav-wrapper.is-preloading {
+  visibility: hidden;
+}
+
 nav {
   display: flex;
   gap: 1.5rem;
