@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #000;
 }
 
 html {
@@ -64,6 +65,11 @@ html {
   background-color: #000000;
   z-index: 1000;
   gap: 5rem;
+}
+
+.nav-wrapper.is-preloading {
+  top: 0;
+  height: 100vh;
 }
 
 nav {

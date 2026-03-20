@@ -16,7 +16,8 @@ gsap.registerPlugin(ScrollTrigger);
     ).join('');
   });
 
-  // 2. Capture natural nav dimensions after split so height is accurate
+  // 2. Remove preloading class to measure natural collapsed dimensions
+  nav.classList.remove('is-preloading');
   const naturalTop    = nav.getBoundingClientRect().top;
   const naturalHeight = nav.offsetHeight;
 
@@ -24,7 +25,7 @@ gsap.registerPlugin(ScrollTrigger);
   nav.dataset.naturalTop    = naturalTop;
   nav.dataset.naturalHeight = naturalHeight;
 
-  // 3. Set full-screen initial state
+  // 3. Set full-screen via GSAP for animation
   gsap.set(nav, { top: 0, height: '100vh' });
 
   // Measure logo position inside full-screen nav, calculate center offset
