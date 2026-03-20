@@ -51,7 +51,7 @@ const projects = [
   {
     title: "HOFNA - ISSUE 02",
     media: [
-      { type: "image", src: "Assets/Projects/HOFNA/Baby-ring.png" },
+      { type: "image", src: "Assets/Projects/HOFNA/Baby-ring.webp" },
       
     ]
   },
@@ -60,39 +60,39 @@ const projects = [
   {
     title: "Lovey Dovey",
     media: [
-      { type: "image", src: "Assets/Projects/Adrian/Mercedes-up-side.PNG" },
+      { type: "image", src: "Assets/Projects/Adrian/Mercedes-up-side.webp" },
     ]
   },
 
   {
     title: "Lovey Dovey",
     media: [
-      { type: "image", src: "Assets/Projects/Adrian/Nissan-up-side.PNG" }
+      { type: "image", src: "Assets/Projects/Adrian/Nissan-up-side.webp" }
     ]
   },
 
   {
     title: "KGL. HFNA",
     media: [
-      { type: "image", src: "Assets/Projects/Adrian/Iceman.jpeg" }
+      { type: "image", src: "Assets/Projects/Adrian/Iceman.webp" }
     ]
   },
 
   {
     title: "Noah Carter - Guld & Grønne Backcover",
     media: [
-      { type: "image", src: "Assets/Projects/Noah Carter/Noah Cover Grøn - 1.PNG" },
-      { type: "image", src: "Assets/Projects/Noah Carter/Noah Cover Grøn - 2.PNG" },
-      { type: "image", src: "Assets/Projects/Noah Carter/Noah Cover Grøn - 3.PNG" },
-      { type: "image", src: "Assets/Projects/Noah Carter/Noah Cover Grøn - 4.PNG" },
-      { type: "image", src: "Assets/Projects/Noah Carter/Noah Cover Grøn - 5.JPG" },
+      { type: "image", src: "Assets/Projects/Noah Carter/Noah Cover Grøn - 1.webp" },
+      { type: "image", src: "Assets/Projects/Noah Carter/Noah Cover Grøn - 2.webp" },
+      { type: "image", src: "Assets/Projects/Noah Carter/Noah Cover Grøn - 3.webp" },
+      { type: "image", src: "Assets/Projects/Noah Carter/Noah Cover Grøn - 4.webp" },
+      { type: "image", src: "Assets/Projects/Noah Carter/Noah Cover Grøn - 5.webp" },
     ]
   },
 
   {
     title: "HOFNA",
     media: [
-      { type: "image", src: "Assets/Projects/HOFNA/Spike-lady.PNG" },
+      { type: "image", src: "Assets/Projects/HOFNA/Spike-lady.webp" },
       
     ]
   },
@@ -100,7 +100,7 @@ const projects = [
    {
     title: "HOFNA MAG - ISSUE 02",
     media: [
-      { type: "image", src: "Assets/Projects/HOFNA/pick-your-love-one.PNG" },
+      { type: "image", src: "Assets/Projects/HOFNA/pick-your-love-one.webp" },
       
     ]
   },
@@ -108,7 +108,7 @@ const projects = [
    {
     title: "HOFNA MAG - ISSUE 02",
     media: [
-      { type: "image", src: "Assets/Projects/HOFNA/pick-your-love-two.PNG" },
+      { type: "image", src: "Assets/Projects/HOFNA/pick-your-love-two.webp" },
       
     ]
   },
@@ -116,7 +116,7 @@ const projects = [
     {
     title: "HOFNA MAG - ISSUE 03",
     media: [
-      { type: "image", src: "Assets/Projects/HOFNA/HOFNA--ISSUE-04.PNG" },
+      { type: "image", src: "Assets/Projects/HOFNA/HOFNA--ISSUE-04.webp" },
       
     ]
   },
@@ -124,7 +124,7 @@ const projects = [
     {
     title: "SCUM BOY MILLIONAIRE",
     media: [
-      { type: "image", src: "Assets/Projects/HOFNA/HOFNA-Scummillionaire.PNG" },
+      { type: "image", src: "Assets/Projects/HOFNA/HOFNA-Scummillionaire.webp" },
 
     ]
   },
@@ -141,7 +141,7 @@ const projects = [
     title: "OZZY VICE VERSA 25",
     media: [
       { type: "video", src: "Assets/Projects/OZZY/Ozzy-web-01.MP4" },
-      { type: "image", src: "Assets/Projects/OZZY/Merch-03.PNG" },
+      { type: "image", src: "Assets/Projects/OZZY/Merch-03.webp" },
     ]
   },
 

@@ -91,6 +91,7 @@ projects.forEach(project => {
       el = document.createElement('img');
       el.src = item.src;
       el.alt = project.title;
+      el.loading = 'lazy';
     }
 
     mediaWrapper.appendChild(el);
