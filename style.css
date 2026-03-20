@@ -51,6 +51,15 @@ html {
   font-weight: 700;
 }
 
+.preloader-bg {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  clip-path: inset(0px 0px 0px 0px);
+  z-index: 999;
+  pointer-events: none;
+}
+
 .nav-wrapper {
   position: fixed;
   top: 50%;
@@ -65,11 +74,6 @@ html {
   background-color: #000000;
   z-index: 1000;
   gap: 5rem;
-}
-
-.nav-wrapper.is-preloading {
-  top: 0;
-  height: 100vh;
 }
 
 nav {

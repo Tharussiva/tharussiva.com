@@ -2,9 +2,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 // ── Preloader ──
 (function () {
-  const nav   = document.querySelector('.nav-wrapper');
-  const logo  = document.querySelector('.nav-logo');
-  const links = document.querySelectorAll('nav a.nav-item');
+  const nav         = document.querySelector('.nav-wrapper');
+  const logo        = document.querySelector('.nav-logo');
+  const links       = document.querySelectorAll('nav a.nav-item');
+  const preloaderBg = document.querySelector('.preloader-bg');
 
   // Lock scroll during animation
   document.body.style.overflow = 'hidden';
@@ -16,8 +17,8 @@ gsap.registerPlugin(ScrollTrigger);
     ).join('');
   });
 
-  // 2. Remove preloading class to measure natural collapsed dimensions
-  nav.classList.remove('is-preloading');
+  // 2. Measure nav's natural position — it sits at its final position from the start,
+  //    no layout animation needed on the nav itself
   const naturalTop    = nav.getBoundingClientRect().top;
   const naturalHeight = nav.offsetHeight;
 
@@ -25,10 +26,8 @@ gsap.registerPlugin(ScrollTrigger);
   nav.dataset.naturalTop    = naturalTop;
   nav.dataset.naturalHeight = naturalHeight;
 
-  // 3. Set full-screen via GSAP for animation
-  gsap.set(nav, { top: 0, height: '100vh' });
-
-  // Measure logo position inside full-screen nav, calculate center offset
+  // 3. Center logo via pure transform — no layout properties touched,
+  //    fully GPU composited and unaffected by any parent animation
   const logoRect = logo.getBoundingClientRect();
   const cx = window.innerWidth  / 2 - logoRect.left - logoRect.width  / 2;
   const cy = window.innerHeight / 2 - logoRect.top  - logoRect.height / 2;
@@ -38,19 +37,21 @@ gsap.registerPlugin(ScrollTrigger);
   gsap.set('.char-inner', { xPercent: -110 });
 
   // 4. Build timeline
+  // The preloader-bg (a separate fixed overlay) collapses via clip-path — GPU composited.
+  // The nav never moves; only the logo and overlay animate.
+  const bottomInset = window.innerHeight - naturalTop - naturalHeight;
+
   gsap.timeline({
     delay: 1,
     onComplete() {
-      // Hand control back to CSS so the nav stays responsive on resize
-      gsap.set(nav,  { clearProps: 'top,height' });
+      preloaderBg.style.display = 'none';
       gsap.set(logo, { clearProps: 'x,y' });
       document.body.style.overflow = '';
       ScrollTrigger.refresh();
     },
   })
-  .to(nav, {
-    top: naturalTop,
-    height: naturalHeight,
+  .to(preloaderBg, {
+    clipPath: `inset(${naturalTop}px 0px ${bottomInset}px 0px)`,
     duration: 1,
     ease: 'power3.inOut',
   })
@@ -58,13 +59,13 @@ gsap.registerPlugin(ScrollTrigger);
     x: 0, y: 0,
     duration: 1.3,
     ease: 'power3.inOut',
-  }, 0) // starts at the same time as nav collapse
+  }, 0)
   .to('.char-inner', {
     xPercent: 0,
     duration: 0.5,
     ease: 'power2.out',
     stagger: 0.033,
-  }, '<0.25'); // slight offset after logo starts
+  }, '<0.25');
 })();
 // ── End Preloader ──
 
