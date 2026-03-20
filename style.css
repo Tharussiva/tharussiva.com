@@ -112,6 +112,12 @@ nav {
   inset: 0;
   visibility: hidden;
   opacity: 0;
+  pointer-events: none;
+}
+
+.intro-close,
+.intro-content {
+  pointer-events: auto;
 }
 
 .intro-close {
@@ -194,3 +200,9 @@ nav {
 }
 
 /* ── End Project Sections ── */
+
+@media (max-width: 768px) {
+  .nav-wrapper {
+    gap: 1rem;
+  }
+}
