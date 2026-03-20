@@ -2,7 +2,7 @@ const projects = [
   {
     title: "MATANGIA - GAME THEORY",
     media: [
-      { type: "video", src: "Assets/Projects/Matangia/Domino-matangia.MOV" },
+      { type: "video", src: "Assets/Projects/Matangia/Domino-matangia.mp4" },
       
     ]
   },
@@ -10,7 +10,7 @@ const projects = [
   {
     title: "MATANGIA - GAME THEORY",
     media: [
-      { type: "video", src: "Assets/Projects/Matangia/Canama.MOV" },
+      { type: "video", src: "Assets/Projects/Matangia/Canama.mp4" },
       
     ]
   },
@@ -27,7 +27,15 @@ const projects = [
   {
     title: "MATANGIA - CARROM TWO",
     media: [
-      { type: "video", src: "Assets/Projects/Matangia/Carrom-blue.MOV" },
+      { type: "video", src: "Assets/Projects/Matangia/Carrom-blue.mp4" },
+      
+    ]
+  },
+
+   {
+    title: "MATANGIA - PROCESS DISCARDED 25",
+    media: [
+      { type: "video", src: "Assets/Projects/Matangia/Design-outtakes-matangia.MP4" },
       
     ]
   },
@@ -35,7 +43,7 @@ const projects = [
   {
     title: "ATALAA SIVA",
     media: [
-      { type: "video", src: "Assets/Projects/ATALAA SIVA/ATALAA SIVA INTRODUCTION.mov" },
+      { type: "video", src: "Assets/Projects/ATALAA SIVA/ATALAA SIVA INTRODUCTION.mp4" },
       
     ]
   },
@@ -117,10 +125,24 @@ const projects = [
     title: "SCUM BOY MILLIONAIRE",
     media: [
       { type: "image", src: "Assets/Projects/HOFNA/HOFNA-Scummillionaire.PNG" },
-      
+
     ]
   },
 
+  {
+    title: "BOUTEKKA.COM",
+    media: [
+      { type: "video", src: "Assets/Projects/BOU TEKKA/Boutekka-web-1.MP4" },
 
+    ]
+  },
+
+  {
+    title: "OZZY VICE VERSA 25",
+    media: [
+      { type: "video", src: "Assets/Projects/OZZY/Ozzy-web-01.MP4" },
+      { type: "image", src: "Assets/Projects/OZZY/Merch-03.PNG" },
+    ]
+  },
 
 ];

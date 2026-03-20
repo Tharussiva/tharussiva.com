@@ -39,21 +39,13 @@ html {
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'ibmMono';
-  src: url('fonts/IBMPlexMono-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 .logo-type {
   font-family: 'logoFont', sans-serif;
   font-weight: 700;
 }
 
 .logo-symbol-r {
-  font-family: 'ibmMono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: .7rem;
   font-weight: 700;
 }
@@ -105,14 +97,78 @@ nav {
 }
 
 .nav-item {
-  font-family: 'ibmMono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #e1e1e1;
   line-height: 1;
   text-transform: uppercase;
   text-decoration: none;
 }
+
+/* ── Introduction Overlay ── */
+.intro-overlay {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.intro-close {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.intro-content {
+  position: absolute;
+  top: calc(50% + 2.2rem);
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  max-width: 26rem;
+}
+
+.intro-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #e1e1e1;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.05em;
+}
+
+.intro-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: rgba(225, 225, 225, 0.6);
+  margin: 0;
+  line-height: 1.8;
+}
+/* ── End Introduction Overlay ── */
+
+/* ── Preloader ── */
+.char-outer {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1.15;
+}
+
+.char-inner {
+  display: inline-block;
+}
+/* ── End Preloader ── */
 
 /* ── Project Sections ── */
 
