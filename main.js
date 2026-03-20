@@ -1,10 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// Always start at the top — prevents browser scroll restoration from
-// ruining the preloader animation
-history.scrollRestoration = 'manual';
-window.scrollTo(0, 0);
-
 // ── Preloader ──
 (function () {
   const nav         = document.querySelector('.nav-wrapper');
