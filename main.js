@@ -7,65 +7,63 @@ gsap.registerPlugin(ScrollTrigger);
   const links       = document.querySelectorAll('nav a.nav-item');
   const preloaderBg = document.querySelector('.preloader-bg');
 
-  // Lock scroll during animation
+  // Lock scroll and split chars immediately — before any async wait
   document.body.style.overflow = 'hidden';
 
-  // 1. Split each link's text into masked chars first
   links.forEach(link => {
     link.innerHTML = [...link.textContent].map(ch =>
       `<span class="char-outer"><span class="char-inner">${ch === ' ' ? '&nbsp;' : ch}</span></span>`
     ).join('');
   });
 
-  // 2. Measure nav's natural position — it sits at its final position from the start,
-  //    no layout animation needed on the nav itself
-  const naturalTop    = nav.getBoundingClientRect().top;
-  const naturalHeight = nav.offsetHeight;
+  // Wait for fonts before measuring — custom font changes logo dimensions,
+  // causing wrong cx/cy if measured before it loads (first visit, no cache)
+  document.fonts.ready.then(() => {
+    // Measure nav's natural position (nav sits at its final position throughout)
+    const naturalTop    = nav.getBoundingClientRect().top;
+    const naturalHeight = nav.offsetHeight;
 
-  // Store for use by intro overlay
-  nav.dataset.naturalTop    = naturalTop;
-  nav.dataset.naturalHeight = naturalHeight;
+    nav.dataset.naturalTop    = naturalTop;
+    nav.dataset.naturalHeight = naturalHeight;
 
-  // 3. Center logo via pure transform — no layout properties touched,
-  //    fully GPU composited and unaffected by any parent animation
-  const logoRect = logo.getBoundingClientRect();
-  const cx = window.innerWidth  / 2 - logoRect.left - logoRect.width  / 2;
-  const cy = window.innerHeight / 2 - logoRect.top  - logoRect.height / 2;
-  gsap.set(logo, { x: cx, y: cy });
+    // Center logo via pure x/y transform — no layout properties, fully GPU composited
+    const logoRect = logo.getBoundingClientRect();
+    const cx = window.innerWidth  / 2 - logoRect.left - logoRect.width  / 2;
+    const cy = window.innerHeight / 2 - logoRect.top  - logoRect.height / 2;
+    gsap.set(logo, { x: cx, y: cy });
 
-  // Hide chars below their mask
-  gsap.set('.char-inner', { xPercent: -110 });
+    // Hide chars below their mask
+    gsap.set('.char-inner', { xPercent: -110 });
 
-  // 4. Build timeline
-  // The preloader-bg (a separate fixed overlay) collapses via clip-path — GPU composited.
-  // The nav never moves; only the logo and overlay animate.
-  const bottomInset = window.innerHeight - naturalTop - naturalHeight;
-
-  gsap.timeline({
-    delay: 1,
-    onComplete() {
-      preloaderBg.style.display = 'none';
-      gsap.set(logo, { clearProps: 'x,y' });
-      document.body.style.overflow = '';
-      ScrollTrigger.refresh();
-    },
-  })
-  .to(preloaderBg, {
-    clipPath: `inset(${naturalTop}px 0px ${bottomInset}px 0px)`,
-    duration: 1,
-    ease: 'power3.inOut',
-  })
-  .to(logo, {
-    x: 0, y: 0,
-    duration: 1.3,
-    ease: 'power3.inOut',
-  }, 0)
-  .to('.char-inner', {
-    xPercent: 0,
-    duration: 0.5,
-    ease: 'power2.out',
-    stagger: 0.033,
-  }, '<0.25');
+    // Build timeline — preloader-bg collapses via height (no clip-path, avoids
+    // a mobile Safari first-paint bug where fixed+clip-path can render invisible)
+    gsap.timeline({
+      delay: 1,
+      onComplete() {
+        preloaderBg.style.display = 'none';
+        gsap.set(logo, { clearProps: 'x,y' });
+        document.body.style.overflow = '';
+        ScrollTrigger.refresh();
+      },
+    })
+    .to(preloaderBg, {
+      top: naturalTop,
+      height: naturalHeight,
+      duration: 1,
+      ease: 'power3.inOut',
+    })
+    .to(logo, {
+      x: 0, y: 0,
+      duration: 1.3,
+      ease: 'power3.inOut',
+    }, 0)
+    .to('.char-inner', {
+      xPercent: 0,
+      duration: 0.5,
+      ease: 'power2.out',
+      stagger: 0.033,
+    }, window.matchMedia('(max-width: 768px)').matches ? '>-0.3' : '<0.25');
+  });
 })();
 // ── End Preloader ──
 
@@ -120,6 +118,7 @@ const firstSection = container.querySelector('.project-section');
 if (firstSection) {
   gsap.to('.nav-wrapper', {
     backgroundColor: 'rgba(0,0,0,0)',
+    immediateRender: false,
     scrollTrigger: {
       trigger: firstSection,
       start: 'top 50%',
