@@ -173,7 +173,7 @@ if (firstSection) {
 
     if (tl) tl.kill();
     tl = gsap.timeline()
-      .to(nav, { top: 0, height: '100vh', duration: 0.8, ease: 'power3.inOut' })
+      .to(nav, { top: 0, height: '100lvh', duration: 0.8, ease: 'power3.inOut' })
       .to(introOverlay, { autoAlpha: 1, duration: 0.3 }, '-=0.1')
       .fromTo(introSections,
         { y: 12, autoAlpha: 0 },
