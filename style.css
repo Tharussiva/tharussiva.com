@@ -222,4 +222,11 @@ nav {
   .nav-wrapper {
     gap: 1rem;
   }
+
+  .nav-project-title {
+    white-space: normal;
+    max-width: 50vw;
+    text-align: right;
+    line-height: 1.4;
+  }
 }
