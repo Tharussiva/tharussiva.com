@@ -37,6 +37,11 @@ gsap.registerPlugin(ScrollTrigger);
   // Hide chars below their mask
   gsap.set('.char-inner', { xPercent: -110 });
 
+  // On mobile the logo travels close to the nav links, so delay chars
+  // until just before the logo lands to avoid overlap
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const charStartPos = isMobile ? '>-0.3' : '<0.25';
+
   // 4. Build timeline
   gsap.timeline({
     delay: 1,
@@ -64,7 +69,7 @@ gsap.registerPlugin(ScrollTrigger);
     duration: 0.5,
     ease: 'power2.out',
     stagger: 0.033,
-  }, '<0.25'); // slight offset after logo starts
+  }, charStartPos);
 })();
 // ── End Preloader ──
 
