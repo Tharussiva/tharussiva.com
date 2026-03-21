@@ -35,15 +35,11 @@ html {
 
 @font-face {
   font-family: 'logoFont';
-  src: url('fonts/AvianoFlareBlack.woff') format('woff2');
+  src: url('fonts/AvianoFlareBlack.woff2') format('woff2'),
+       url('fonts/AvianoFlareBlack.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-}
-
-.logo-type {
-  font-family: 'logoFont', sans-serif;
-  font-weight: 700;
 }
 
 .logo-symbol-r {
@@ -194,7 +190,7 @@ nav {
 
 .project-section {
   width: 100%;
-  height: 100vh;
+  height: 100lvh;
   position: relative;
   overflow: hidden;
   background: #000;

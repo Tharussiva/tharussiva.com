@@ -2,7 +2,7 @@ const projects = [
   {
     title: "MATANGIA - GAME THEORY",
     media: [
-      { type: "video", src: "Assets/Projects/Matangia/Domino-matangia.mp4", poster: "Assets/Projects/Matangia/Domino-matangia-poster.webp" },
+      { type: "video", src: "c3164250214569862933bb626bc2845d" },
       
     ]
   },
@@ -10,7 +10,7 @@ const projects = [
   {
     title: "MATANGIA - GAME THEORY",
     media: [
-      { type: "video", src: "Assets/Projects/Matangia/Canama.mp4", poster: "Assets/Projects/Matangia/Canama-poster.webp" },
+      { type: "video", src: "14acbfe04ff4fbc265489c221a791f60" },
       
     ]
   },
@@ -18,7 +18,7 @@ const projects = [
   {
     title: "MATANGIA - FIGTHING BOY",
     media: [
-      { type: "video", src: "Assets/Projects/Matangia/Matangia-figther-boy.MP4", poster: "Assets/Projects/Matangia/Matangia-figther-boy-poster.webp" },
+      { type: "video", src: "9989001e522440bf196b79dfc4d98637" },
       
     ]
   },
@@ -27,7 +27,7 @@ const projects = [
   {
     title: "MATANGIA - CARROM TWO",
     media: [
-      { type: "video", src: "Assets/Projects/Matangia/Carrom-blue.mp4", poster: "Assets/Projects/Matangia/Carrom-blue-poster.webp" },
+      { type: "video", src: "e6c33135bd60d8dc1fe9aac0d7719e10" },
       
     ]
   },
@@ -35,7 +35,7 @@ const projects = [
    {
     title: "MATANGIA - PROCESS DISCARDED 25",
     media: [
-      { type: "video", src: "Assets/Projects/Matangia/Design-outtakes-matangia.MP4", poster: "Assets/Projects/Matangia/Design-outtakes-matangia-poster.webp" },
+      { type: "video", src: "aad1c4cf5023a1a30cd56d9c3113114b" },
       
     ]
   },
@@ -43,7 +43,7 @@ const projects = [
   {
     title: "ATALAA SIVA",
     media: [
-      { type: "video", src: "Assets/Projects/ATALAA SIVA/ATALAA SIVA INTRODUCTION.mp4", poster: "Assets/Projects/ATALAA SIVA/ATALAA SIVA INTRODUCTION-poster.webp" },
+      { type: "video", src: "5ba9645426057e49276d5165e41d33f2" },
       
     ]
   },
@@ -132,7 +132,7 @@ const projects = [
   {
     title: "BOUTEKKA.COM",
     media: [
-      { type: "video", src: "Assets/Projects/BOU TEKKA/Boutekka-web-1.MP4", poster: "Assets/Projects/BOU TEKKA/Boutekka-web-1-poster.webp" },
+      { type: "video", src: "e9b80115a69598879b854687e585c5a3" },
 
     ]
   },
@@ -140,7 +140,7 @@ const projects = [
   {
     title: "OZZY VICE VERSA 25",
     media: [
-      { type: "video", src: "Assets/Projects/OZZY/Ozzy-web-01.MP4", poster: "Assets/Projects/OZZY/Ozzy-web-01-poster.webp" },
+      { type: "video", src: "88702f8f63946af626461b69c3103d37" },
       { type: "image", src: "Assets/Projects/OZZY/Merch-03.webp" },
     ]
   },

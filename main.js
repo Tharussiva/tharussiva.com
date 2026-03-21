@@ -88,15 +88,43 @@ projects.forEach(project => {
     mediaWrapper.className = 'project-media';
 
     let el;
+    let loadVideo;
     if (item.type === 'video') {
       el = document.createElement('video');
-      el.src = item.src;
       el.muted = true;
-      el.loop = true;
       el.playsInline = true;
-      el.preload = 'none';
-      if (item.poster) el.poster = item.poster;
-      el.setAttribute('playsinline', '');
+      const hlsUrl = `https://customer-trj51pd1actx761y.cloudflarestream.com/${item.src}/manifest/video.m3u8?clientBandwidthHint=5`;
+      let hlsLoaded = false;
+
+      loadVideo = () => {
+        if (hlsLoaded) return;
+        hlsLoaded = true;
+        if (el.canPlayType('application/vnd.apple.mpegurl')) {
+          el.src = hlsUrl;
+          el.loop = true;
+        } else if (window.Hls && Hls.isSupported()) {
+          const hls = new Hls();
+          hls.loadSource(hlsUrl);
+          hls.attachMedia(el);
+          hls.on(Hls.Events.MANIFEST_PARSED, (_, data) => {
+            hls.currentLevel = data.levels.length - 1;
+          });
+          hls.on(Hls.Events.ERROR, (_, data) => {
+            if (!data.fatal) return;
+            if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+              hls.startLoad();
+            } else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
+              hls.recoverMediaError();
+            } else {
+              hls.destroy();
+            }
+          });
+          el.addEventListener('ended', () => {
+            el.currentTime = 0;
+            el.play().catch(() => {});
+          });
+        }
+      };
     } else {
       el = document.createElement('img');
       el.src = item.src;
@@ -108,14 +136,14 @@ projects.forEach(project => {
     section.appendChild(mediaWrapper);
     container.appendChild(section);
 
-    // Play/pause video as section enters/leaves view
+    // Load and play/pause video as section enters/leaves view
     if (item.type === 'video') {
       ScrollTrigger.create({
         trigger: section,
-        start: 'top 80%',
+        start: 'top 120%',
         end: 'bottom 20%',
-        onEnter:      () => el.play(),
-        onEnterBack:  () => el.play(),
+        onEnter:      () => { loadVideo(); el.play().catch(() => {}); },
+        onEnterBack:  () => { loadVideo(); el.play().catch(() => {}); },
         onLeave:      () => el.pause(),
         onLeaveBack:  () => el.pause(),
       });
