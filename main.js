@@ -375,12 +375,24 @@ container.querySelectorAll('.project-section').forEach(section => {
         if (window.matchMedia('(hover: hover)').matches) hidePreview();
       });
 
-      // Mobile: tap to expand/collapse inline
       head.addEventListener('click', () => {
-        if (!window.matchMedia('(hover: none)').matches) return;
-        const expanded = li.classList.contains('is-expanded');
-        ul.querySelectorAll('.list-row.is-expanded').forEach(r => collapseRow(r));
-        if (!expanded) expandRow(li, item, mediaDiv);
+        if (window.matchMedia('(hover: hover)').matches) {
+          // Desktop: exit list, jump to the corresponding feed section
+          hidePreview();
+          enterFeed();
+          requestAnimationFrame(() => {
+            const target = container.querySelectorAll('.project-section')[i];
+            if (!target) return;
+            target.scrollIntoView({ behavior: 'instant' });
+            target.classList.add('is-highlighted');
+            target.addEventListener('animationend', () => target.classList.remove('is-highlighted'), { once: true });
+          });
+        } else {
+          // Mobile: tap to expand/collapse inline
+          const expanded = li.classList.contains('is-expanded');
+          ul.querySelectorAll('.list-row.is-expanded').forEach(r => collapseRow(r));
+          if (!expanded) expandRow(li, item, mediaDiv);
+        }
       });
 
       ul.appendChild(li);
@@ -433,7 +445,6 @@ container.querySelectorAll('.project-section').forEach(section => {
   }
 
   function enterFeed() {
-    isListMode = false;
     html.classList.remove('list-view-mode');
     listEl.classList.remove('is-active');
     heroEl.style.display    = '';
