@@ -137,7 +137,7 @@ nav {
 
 .intro-close {
   position: absolute;
-  bottom: 2rem;
+  bottom: max(2rem, env(safe-area-inset-bottom) + 1rem);
   left: 50%;
   transform: translateX(-50%);
   background: none;
@@ -150,13 +150,13 @@ nav {
 
 .intro-content {
   position: absolute;
-  top: calc(50% + 2.2rem);
+  top: 3rem;
   left: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
   max-width: 26rem;
-  max-height: calc(50% - 5rem);
+  max-height: calc(100% - 8rem);
   overflow-y: auto;
 }
 

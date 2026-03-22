@@ -198,10 +198,12 @@ if (firstSection) {
 
 // ── Introduction Overlay ──
 (function () {
-  const nav          = document.querySelector('.nav-wrapper');
-  const introLink    = document.querySelector('a[href="#about"]');
-  const introOverlay = document.querySelector('.intro-overlay');
-  const introClose   = document.querySelector('.intro-close');
+  const nav           = document.querySelector('.nav-wrapper');
+  const navLogo       = nav.querySelector('.nav-logo');
+  const navRight      = nav.querySelector('.nav-right');
+  const introLink     = document.querySelector('a[href="#about"]');
+  const introOverlay  = document.querySelector('.intro-overlay');
+  const introClose    = document.querySelector('.intro-close');
   const introSections = document.querySelectorAll('.intro-section');
 
   let isOpen = false;
@@ -213,9 +215,13 @@ if (firstSection) {
     isOpen = true;
     document.body.style.overflow = 'hidden';
 
+    // Distance to move nav items from vertical center to near the top
+    const targetY = -(window.innerHeight / 2 - navLogo.offsetHeight / 2 - 8);
+
     if (tl) tl.kill();
     tl = gsap.timeline()
-      .to(nav, { top: 0, height: '100lvh', duration: 0.8, ease: 'power3.inOut' })
+      .to(nav, { top: 0, height: '100dvh', duration: 0.8, ease: 'power3.inOut' })
+      .to([navLogo, navRight], { y: targetY, duration: 0.8, ease: 'power3.inOut' }, 0)
       .to(introOverlay, { autoAlpha: 1, duration: 0.3 }, '-=0.1')
       .fromTo(introSections,
         { y: 12, autoAlpha: 0 },
@@ -235,12 +241,14 @@ if (firstSection) {
     tl = gsap.timeline({
       onComplete() {
         gsap.set(nav, { clearProps: 'top,height' });
+        gsap.set([navLogo, navRight], { clearProps: 'y' });
         document.body.style.overflow = '';
       },
     })
     .to(introSections, { y: -8, autoAlpha: 0, duration: 0.2, stagger: 0.05, ease: 'power2.in' })
     .to(introOverlay, { autoAlpha: 0, duration: 0.25 }, '-=0.1')
-    .to(nav, { top: naturalTop, height: naturalHeight, duration: 0.7, ease: 'power3.inOut' }, '-=0.15');
+    .to([navLogo, navRight], { y: 0, duration: 0.7, ease: 'power3.inOut' }, '-=0.15')
+    .to(nav, { top: naturalTop, height: naturalHeight, duration: 0.7, ease: 'power3.inOut' }, '-=0.7');
   });
 })();
 // ── End Introduction Overlay ──
