@@ -46,6 +46,8 @@ gsap.registerPlugin(ScrollTrigger);
 
     // Build timeline — preloader-bg collapses via height (no clip-path, avoids
     // a mobile Safari first-paint bug where fixed+clip-path can render invisible)
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
     gsap.timeline({
       delay: 1,
       onComplete() {
@@ -58,20 +60,20 @@ gsap.registerPlugin(ScrollTrigger);
     .to(preloaderBg, {
       top: naturalTop,
       height: naturalHeight,
-      duration: 1,
+      duration: isMobile ? 0.8 : 1,
       ease: 'power3.inOut',
     })
     .to(logo, {
       x: 0, y: 0,
-      duration: 1.3,
+      duration: isMobile ? 0.9 : 1.3,
       ease: 'power3.inOut',
     }, 0)
     .to('.char-inner', {
       xPercent: 0,
-      duration: 0.5,
+      duration: isMobile ? 0.4 : 0.5,
       ease: 'power2.out',
       stagger: 0.033,
-    }, window.matchMedia('(max-width: 768px)').matches ? '>-0.3' : '<0.25');
+    }, isMobile ? '>-0.6' : '<0.25');
   });
 })();
 // ── End Preloader ──
