@@ -49,20 +49,6 @@ const projects = [
   },
 
   {
-    title: "AR-experience-aero_recording.mp4",
-    media: [
-      { type: "video", src: "95fd7d09ca4e2518feae5fc730ed3481" },
-    ]
-  },
-
-  {
-    title: "EMOTIONAL FANTASIES_vhs .jpg",
-    media: [
-      { type: "image", src: "Assets/Projects/New images/EMOTIONAL FANTASIES_vhs .jpg" },
-    ]
-  },
-
-  {
     title: "HOFNALABS \"DHL PACKAGE\" Testing_3D.mp4",
     media: [
       { type: "video", src: "981c86bd3e49516d9082f3ee1824a229" },
@@ -248,16 +234,9 @@ const projects = [
   },
 
   {
-    title: "HOFNA - Bbygirl",
+    title: "IMG_3752.webp",
     media: [
-      { type: "image", src: "Assets/Projects/HOFNA/HOFNA - Bbygirl unreleased.webp" }
-    ]
-  },
-
-  {
-    title: "HOFNA - Human Accessory 2021",
-    media: [
-      { type: "image", src: "Assets/Projects/HOFNA/HOFNA - Human Accessory 2021.webp" }
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/IMG_3752.webp" }
     ]
   },
 
@@ -536,13 +515,6 @@ const projects = [
   },
 
   {
-    title: "ivansito-roskildefestival-visuals-bts-2022.webp",
-    media: [
-      { type: "image", src: "Assets/Projects/upload22-03-25/images/ivansito-roskildefestival-visuals-bts-2022.webp" }
-    ]
-  },
-
-  {
     title: "Human-accessory-tee-flatlay.webp",
     media: [
       { type: "image", src: "Assets/Projects/upload22-03-25/images/Human-accessory-tee-flatlay.webp" }
@@ -550,9 +522,23 @@ const projects = [
   },
 
   {
-    title: "IMG_3752.webp",
+    title: "AR-experience-aero_recording.mp4",
     media: [
-      { type: "image", src: "Assets/Projects/upload22-03-25/images/IMG_3752.webp" }
+      { type: "video", src: "95fd7d09ca4e2518feae5fc730ed3481" },
+    ]
+  },
+
+  {
+    title: "EMOTIONAL FANTASIES_vhs .jpg",
+    media: [
+      { type: "image", src: "Assets/Projects/New images/EMOTIONAL FANTASIES_vhs .jpg" },
+    ]
+  },
+
+  {
+    title: "HOFNA - Bbygirl",
+    media: [
+      { type: "image", src: "Assets/Projects/HOFNA/HOFNA - Bbygirl unreleased.webp" }
     ]
   },
 
