@@ -94,7 +94,11 @@ nav {
   height: 100%;
   display: flex;
   align-items: center;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
+  max-width: 40vw;
+  text-align: right;
+  line-height: 1.4;
 }
 
 .nav-logo {
