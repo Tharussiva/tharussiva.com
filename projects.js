@@ -108,7 +108,7 @@ const projects = [
   {
     title: "Vandalise 2020",
     media: [
-      { type: "image", src: "Assets/Projects/Adrian/Vandalise 2020.JPG" }
+      { type: "image", src: "Assets/Projects/Adrian/Vandalise 2020.webp" }
     ]
   },
 
@@ -134,7 +134,7 @@ const projects = [
   {
     title: "Noah Carter GuldogGrønne draft.PNG",
     media: [
-      { type: "image", src: "Assets/Projects/New images/Noah Carter GuldogGrønne draft.PNG" }
+      { type: "image", src: "Assets/Projects/New images/Noah Carter GuldogGrønne draft.webp" }
     ]
   },
 
@@ -187,14 +187,14 @@ const projects = [
   {
     title: "HOFNA MAG 23_02.jpeg",
     media: [
-      { type: "image", src: "Assets/Projects/New images/HOFNA MAG 23_02.jpeg" }
+      { type: "image", src: "Assets/Projects/New images/HOFNA MAG 23_02.webp" }
     ]
   },
 
   {
     title: "HOFNA MAG 23_03.jpeg",
     media: [
-      { type: "image", src: "Assets/Projects/New images/HOFNA MAG 23_03.jpeg" }
+      { type: "image", src: "Assets/Projects/New images/HOFNA MAG 23_03.webp" }
     ]
   },
 
@@ -278,7 +278,7 @@ const projects = [
   {
     title: "originalRAF SIMONS human-accessory.PNG",
     media: [
-      { type: "image", src: "Assets/Projects/New images/originalRAF SIMONS human-accessory.PNG" }
+      { type: "image", src: "Assets/Projects/New images/originalRAF SIMONS human-accessory.webp" }
     ]
   },
 
@@ -292,7 +292,7 @@ const projects = [
   {
     title: "©HOFNA™ FREQ-AMP+MOD.jpg",
     media: [
-      { type: "image", src: "Assets/Projects/New images/©HOFNA™ FREQ-AMP+MOD.jpg" }
+      { type: "image", src: "Assets/Projects/New images/©HOFNA™ FREQ-AMP+MOD.webp" }
     ]
   },
 
@@ -327,7 +327,7 @@ const projects = [
   {
     title: "bunny-face-tee.JPG",
     media: [
-      { type: "image", src: "Assets/Projects/New images/bunny-face-tee.JPG" }
+      { type: "image", src: "Assets/Projects/New images/bunny-face-tee.webp" }
     ]
   },
 
@@ -363,28 +363,28 @@ const projects = [
   {
     title: "Custom Nike Top",
     media: [
-      { type: "image", src: "Assets/Projects/New images/Custom Nike top.jpeg" }
+      { type: "image", src: "Assets/Projects/New images/Custom Nike top.webp" }
     ]
   },
 
   {
     title: "Chrome ball untitled.PNG",
     media: [
-      { type: "image", src: "Assets/Projects/New images/Chrome ball untitled.PNG" }
+      { type: "image", src: "Assets/Projects/New images/Chrome ball untitled.webp" }
     ]
   },
 
   {
     title: "Uden filter test poster.PNG",
     media: [
-      { type: "image", src: "Assets/Projects/New images/Uden filter test poster.PNG" }
+      { type: "image", src: "Assets/Projects/New images/Uden filter test poster.webp" }
     ]
   },
 
   {
     title: "Untitled-unknow.jpeg",
     media: [
-      { type: "image", src: "Assets/Projects/New images/Untitled-unknow.jpeg" }
+      { type: "image", src: "Assets/Projects/New images/Untitled-unknow.webp" }
     ]
   },
 
