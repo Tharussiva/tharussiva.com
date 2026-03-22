@@ -388,4 +388,221 @@ const projects = [
     ]
   },
 
+  {
+    title: "Noah-carter-honey-tee-draft-2025.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/Noah-carter-honey-tee-draft-2025.webp" }
+    ]
+  },
+
+  {
+    title: "Noahcarter-vidamedia-draft-nogurantee.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/Noahcarter-vidamedia-draft-nogurantee.webp" }
+    ]
+  },
+
+  {
+    title: "Noah-carter-dirty-disco-IA cover-experiment.mp4",
+    media: [
+      { type: "video", src: "984633ad61f14a1e2566bfd6b6ca5a35" }
+    ]
+  },
+
+  {
+    title: "noah-vida-shoot-bts-2021.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/noah-vida-shoot-bts-2021.webp" }
+    ]
+  },
+
+  {
+    title: "noahcarter-scamcoll-release-one-bareen-sampling-2022.mp4",
+    media: [
+      { type: "video", src: "816dba309ba13d07222592811b19dbab" }
+    ]
+  },
+
+  {
+    title: "scam-coll-marvelous-sim.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/scam-coll-marvelous-sim.webp" }
+    ]
+  },
+
+  {
+    title: "hofna-cctv-test-2021.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/hofna-cctv-test-2021.webp" }
+    ]
+  },
+
+  {
+    title: "HOFNA-SPINNIG-ALIEN-LOGO-2022.mp4",
+    media: [
+      { type: "video", src: "096e7ff0748107efd8beb4eda2f9e908" }
+    ]
+  },
+
+  {
+    title: "hofna-tama-pendant-concept-demo.mp4",
+    media: [
+      { type: "video", src: "e1463f2c7fbb2b06fadc2a68358702a5" }
+    ]
+  },
+
+  {
+    title: "hofna-website-demo.mp4",
+    media: [
+      { type: "video", src: "9338c6d1d335f685cd95b355fb1d38fe" }
+    ]
+  },
+
+  {
+    title: "interactive-event-test-hofna-2021.mp4",
+    media: [
+      { type: "video", src: "a03352c1d083462b9e514b0a509d8cfe" }
+    ]
+  },
+
+  {
+    title: "ig-filter-test-2023.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/ig-filter-test-2023.webp" }
+    ]
+  },
+
+  {
+    title: "instagram-filter-presentation-render3d.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/instagram-filter-presentation-render3d.webp" }
+    ]
+  },
+
+  {
+    title: "instagram-filter-v1-alia.mp4",
+    media: [
+      { type: "video", src: "060f622942ac2252bd935565b118adfb" }
+    ]
+  },
+
+  {
+    title: "t-shirt-insta-filter-test-2022.mp4",
+    media: [
+      { type: "video", src: "0953ecb818e1d6020473ea0de7de9bd4" }
+    ]
+  },
+
+  {
+    title: "filter-test-discarded-2022.mp4",
+    media: [
+      { type: "video", src: "d894e3cd94a4f84407beb0f210f25238" }
+    ]
+  },
+
+  {
+    title: "Blender-viewport-june-24.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/Blender-viewport-june-24.webp" }
+    ]
+  },
+
+  {
+    title: "FLIKO-pendant-concept-render3d.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/FLIKO-pendant-concept-render3d.webp" }
+    ]
+  },
+
+  {
+    title: "ferrari-3drender-test-2024.mp4",
+    media: [
+      { type: "video", src: "6bdcf813892b3ca6d90d8c9e6a6fd641" }
+    ]
+  },
+
+  {
+    title: "quratee-gold-logo-viewport-render.mp4",
+    media: [
+      { type: "video", src: "8b0bc1fa1da8ecfa5b5ca0948c4b41af" }
+    ]
+  },
+
+  {
+    title: "ivansito-roskilde-visuals-bts-2022.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/ivansito-roskilde-visuals-bts-2022.webp" }
+    ]
+  },
+
+  {
+    title: "ivansito-roskildefestival-visuals-bts-2022.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/ivansito-roskildefestival-visuals-bts-2022.webp" }
+    ]
+  },
+
+  {
+    title: "Human-accessory-tee-flatlay.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/Human-accessory-tee-flatlay.webp" }
+    ]
+  },
+
+  {
+    title: "IMG_3752.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/IMG_3752.webp" }
+    ]
+  },
+
+  {
+    title: "dearRosalia-sweatshirt-discarded.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/dearRosalia-sweatshirt-discarded.webp" }
+    ]
+  },
+
+  {
+    title: "discarded-event-poster.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/discarded-event-poster.webp" }
+    ]
+  },
+
+  {
+    title: "good-girl-tv-sofia.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/good-girl-tv-sofia.webp" }
+    ]
+  },
+
+  {
+    title: "kris-tourposter-discarded-2025.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/kris-tourposter-discarded-2025.webp" }
+    ]
+  },
+
+  {
+    title: "link-me.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/link-me.webp" }
+    ]
+  },
+
+  {
+    title: "newyorkxstudioguapo-poster-back.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/newyorkxstudioguapo-poster-back.webp" }
+    ]
+  },
+
+  {
+    title: "mini-led-screen-test-2021.mp4",
+    media: [
+      { type: "video", src: "abeae0594e458c5fa1fb7a74a5abe5d2" }
+    ]
+  },
+
 ];
