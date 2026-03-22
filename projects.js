@@ -99,6 +99,13 @@ const projects = [
   },
 
   {
+    title: "Human-accessory-tee-flatlay.webp",
+    media: [
+      { type: "image", src: "Assets/Projects/upload22-03-25/images/Human-accessory-tee-flatlay.webp" }
+    ]
+  },
+
+  {
     title: "Noah Carter - Carter the Kid, Photography by Jens Haugaard",
     media: [
       { type: "image", src: "Assets/Projects/Noah Carter/FRONT CTK.webp" },
@@ -304,13 +311,6 @@ const projects = [
   },
 
   {
-    title: "bunny-face-tee.JPG",
-    media: [
-      { type: "image", src: "Assets/Projects/New images/bunny-face-tee.webp" }
-    ]
-  },
-
-  {
     title: "2020 cap hofna.jpg",
     media: [
       { type: "image", src: "Assets/Projects/New images/2020 cap hofna.jpg" }
@@ -511,13 +511,6 @@ const projects = [
     title: "ivansito-roskilde-visuals-bts-2022.webp",
     media: [
       { type: "image", src: "Assets/Projects/upload22-03-25/images/ivansito-roskilde-visuals-bts-2022.webp" }
-    ]
-  },
-
-  {
-    title: "Human-accessory-tee-flatlay.webp",
-    media: [
-      { type: "image", src: "Assets/Projects/upload22-03-25/images/Human-accessory-tee-flatlay.webp" }
     ]
   },
 

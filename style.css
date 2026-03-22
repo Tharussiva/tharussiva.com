@@ -24,6 +24,15 @@ html {
   z-index: 0;
 }
 
+.scroll-hint.nav-item {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  writing-mode: horizontal-tb;
+  color: #000;
+}
+
 .bg-image-full {
   position: absolute;
   inset: 0;
@@ -99,7 +108,6 @@ nav {
   max-width: 40vw;
   text-align: right;
   line-height: 1.4;
-  pointer-events: none;
 }
 
 .nav-logo {
@@ -219,6 +227,11 @@ nav {
 /* ── End Project Sections ── */
 
 /* ── List View ── */
+
+.list-count {
+  margin: 0 0 1rem;
+  opacity: 0.4;
+}
 
 html.list-view-mode {
   scroll-snap-type: none;

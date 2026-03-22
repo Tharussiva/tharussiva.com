@@ -180,14 +180,14 @@ if (firstSection) {
     trigger: firstSection,
     start: 'top 50%',
     onEnter: () => {
-      gsap.to(navEl.querySelectorAll('a.nav-item'), { opacity: 0, y: -6, duration: 0.18, ease: 'power2.out' });
+      gsap.to(navEl.querySelectorAll('a.nav-item'), { opacity: 0, y: -6, duration: 0.18, ease: 'power2.out', pointerEvents: 'none' });
       gsap.to(navTitle, { opacity: 1, y: 0,  duration: 0.18, ease: 'power2.out' });
       if (!document.documentElement.classList.contains('list-view-mode')) {
         gsap.to('.view-toggle', { autoAlpha: 1, duration: 0.18, ease: 'power2.out' });
       }
     },
     onLeaveBack: () => {
-      gsap.to(navEl.querySelectorAll('a.nav-item'), { opacity: 1, y: 0,  duration: 0.18, ease: 'power2.out' });
+      gsap.to(navEl.querySelectorAll('a.nav-item'), { opacity: 1, y: 0,  duration: 0.18, ease: 'power2.out', pointerEvents: 'auto' });
       gsap.to(navTitle, { opacity: 0, y: 6,  duration: 0.18, ease: 'power2.out' });
       if (!document.documentElement.classList.contains('list-view-mode')) {
         gsap.to('.view-toggle', { autoAlpha: 0, duration: 0.18, ease: 'power2.out' });
@@ -349,6 +349,14 @@ container.querySelectorAll('.project-section').forEach(section => {
 
     const items = [];
     projects.forEach(p => p.media.forEach(m => items.push({ title: p.title, type: m.type, src: m.src })));
+
+    const images = items.filter(i => i.type === 'image').length;
+    const videos = items.filter(i => i.type === 'video').length;
+
+    const header = document.createElement('p');
+    header.className = 'list-count nav-item';
+    header.textContent = `${items.length} indexed — ${images} images, ${videos} videos`;
+    listEl.appendChild(header);
 
     const ul = document.createElement('ul');
     ul.className = 'list-tree';
