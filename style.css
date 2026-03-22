@@ -156,6 +156,8 @@ nav {
   flex-direction: column;
   gap: 1.6rem;
   max-width: 26rem;
+  max-height: calc(50% - 5rem);
+  overflow-y: auto;
 }
 
 .intro-label {
