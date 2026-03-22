@@ -99,6 +99,7 @@ nav {
   max-width: 40vw;
   text-align: right;
   line-height: 1.4;
+  pointer-events: none;
 }
 
 .nav-logo {
@@ -214,6 +215,143 @@ nav {
 }
 
 /* ── End Project Sections ── */
+
+/* ── List View ── */
+
+html.list-view-mode {
+  scroll-snap-type: none;
+}
+
+.view-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1001;
+  display: flex;
+  gap: 1rem;
+}
+
+.view-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.12s;
+}
+
+.view-btn.is-active {
+  pointer-events: none;
+}
+
+.view-btn:not(.is-active) {
+  color: rgba(225, 225, 225, 0.3);
+}
+
+#list-view {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 500;
+  overflow-y: auto;
+  padding: calc(50lvh + 2.5rem) 1rem 4rem;
+  scrollbar-width: none;
+}
+
+#list-view::-webkit-scrollbar {
+  display: none;
+}
+
+#list-view.is-active {
+  display: block;
+}
+
+.list-tree {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-row-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  cursor: default;
+}
+
+.list-connector {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(225, 225, 225, 0.2);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.list-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #e1e1e1;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  transition: color 0.12s;
+}
+
+.list-row:hover .list-title {
+  color: rgba(225, 225, 225, 0.4);
+}
+
+/* Cursor follower preview */
+.list-cursor-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 300px;
+  height: 210px;
+  z-index: 2000;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  overflow: hidden;
+  background: #000;
+}
+
+.list-cursor-preview.is-visible {
+  opacity: 1;
+}
+
+.list-cursor-preview img,
+.list-cursor-preview video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #000;
+}
+
+/* Mobile inline expand */
+.list-row-media {
+  display: none;
+  padding: 0.5rem 0 0.75rem 2rem;
+}
+
+.list-row.is-expanded .list-row-media {
+  display: block;
+}
+
+.list-row-media img,
+.list-row-media video {
+  width: 100%;
+  max-height: 56vw;
+  object-fit: contain;
+  display: block;
+  background: #000;
+}
+
+/* ── End List View ── */
 
 @media (max-width: 768px) {
   .nav-wrapper {
