@@ -275,9 +275,9 @@ container.querySelectorAll('.project-section').forEach(section => {
 
   let built = false;
 
-  // ── Shared cursor-follower preview ──
+  // ── Shared background preview ──
   const preview = document.createElement('div');
-  preview.className = 'list-cursor-preview';
+  preview.className = 'list-bg-preview';
   const prevImg = document.createElement('img');
   const prevVid = document.createElement('video');
   prevVid.muted       = true;
@@ -287,18 +287,7 @@ container.querySelectorAll('.project-section').forEach(section => {
   document.body.appendChild(preview);
 
   let hlsInstance = null;
-
-  // Follow cursor via transform (avoids layout recalc on every mousemove)
-  document.addEventListener('mousemove', e => {
-    if (!preview.classList.contains('is-visible')) return;
-    const pw = 300, ph = 210, offset = 22;
-    const vw = window.innerWidth, vh = window.innerHeight;
-    let x = e.clientX + offset;
-    let y = e.clientY - ph / 2;
-    if (x + pw > vw - 8) x = e.clientX - pw - offset;
-    y = Math.max(8, Math.min(vh - ph - 8, y));
-    preview.style.transform = `translate(${x}px,${y}px)`;
-  });
+  const navWrapper = document.querySelector('.nav-wrapper');
 
   function showPreview(type, src) {
     if (type === 'image') {
@@ -362,8 +351,6 @@ container.querySelectorAll('.project-section').forEach(section => {
     ul.className = 'list-tree';
 
     items.forEach((item, i) => {
-      const isLast = i === items.length - 1;
-
       const li = document.createElement('li');
       li.className = 'list-row';
 
@@ -372,7 +359,7 @@ container.querySelectorAll('.project-section').forEach(section => {
 
       const conn = document.createElement('span');
       conn.className = 'list-connector';
-      conn.textContent = isLast ? '└──' : '├──';
+      conn.textContent = `[${i + 1}]`;
 
       const title = document.createElement('span');
       title.className = 'list-title';
@@ -385,12 +372,18 @@ container.querySelectorAll('.project-section').forEach(section => {
 
       li.append(head, mediaDiv);
 
-      // Desktop: cursor-follower on hover (pointer devices only)
+      // Desktop: background preview on hover (pointer devices only)
       head.addEventListener('mouseenter', () => {
-        if (window.matchMedia('(hover: hover)').matches) showPreview(item.type, item.src);
+        if (window.matchMedia('(hover: hover)').matches) {
+          showPreview(item.type, item.src);
+          navWrapper.classList.add('list-preview-active');
+        }
       });
       head.addEventListener('mouseleave', () => {
-        if (window.matchMedia('(hover: hover)').matches) hidePreview();
+        if (window.matchMedia('(hover: hover)').matches) {
+          hidePreview();
+          navWrapper.classList.remove('list-preview-active');
+        }
       });
 
       head.addEventListener('click', () => {
