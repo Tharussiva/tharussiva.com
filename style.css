@@ -303,6 +303,8 @@ html.list-view-mode {
   color: rgba(225, 225, 225, 0.4);
   flex-shrink: 0;
   user-select: none;
+  width: 4ch;
+  text-align: right;
 }
 
 .list-title {
