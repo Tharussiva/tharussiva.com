@@ -143,7 +143,6 @@ gsap.set(viewToggle, { autoAlpha: 0 });
 
 fetchProjects().then(projects => {
   document.body.style.overflow = '';
-  console.log('✅ Sanity fetch OK —', projects.length, 'projects');
 
   // ── Render feed ──
   projects.forEach(project => {
