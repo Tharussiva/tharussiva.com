@@ -3,7 +3,7 @@ import { createClient } from '@sanity/client';
 const client = createClient({
   projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
   dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
-  useCdn: false,
+  useCdn: true,
   apiVersion: '2024-01-01',
 });
 
@@ -14,7 +14,7 @@ export async function fetchProjects() {
       "media": media[] {
         "type": mediaType,
         "src": select(
-          mediaType == "image" => image.asset->url + "?w=2160&q=90&auto=format&fit=max",
+          mediaType == "image" => image.asset->url + "?w=1080&q=85&auto=format&fit=max",
           mediaType == "video" => videoKey
         )
       }

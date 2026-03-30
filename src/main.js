@@ -71,7 +71,7 @@ const R2 = import.meta.env.VITE_R2_PUBLIC_URL;
       duration: isMobile ? 0.4 : 0.5,
       ease: 'power2.out',
       stagger: 0.033,
-    }, isMobile ? '>-0.6' : '<0.25');
+    }, isMobile ? '>' : '<0.25');
   });
 })();
 // ── End Preloader ──
@@ -176,7 +176,7 @@ fetchProjects().then(projects => {
       if (item.type === 'video') {
         ScrollTrigger.create({
           trigger: section,
-          start: 'top 120%',
+          start: 'top 80%',
           end: 'bottom 20%',
           onEnter:      () => el.play().catch(() => {}),
           onEnterBack:  () => el.play().catch(() => {}),
@@ -189,6 +189,16 @@ fetchProjects().then(projects => {
 
   // Refresh ScrollTrigger now that all sections are in the DOM
   ScrollTrigger.refresh();
+
+  // Play any videos already in the viewport when sections first render
+  container.querySelectorAll('.project-section').forEach(section => {
+    const video = section.querySelector('video');
+    if (!video) return;
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0) {
+      video.play().catch(() => {});
+    }
+  });
 
   // ── Nav background fade ──
   const firstSection = container.querySelector('.project-section');
