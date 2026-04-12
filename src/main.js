@@ -42,7 +42,6 @@ const R2 = import.meta.env.VITE_R2_PUBLIC_URL;
     gsap.set(logo, { x: cx, y: cy });
 
     gsap.set('.char-inner', { xPercent: -110 });
-    gsap.set(preloaderBg, { height: preloaderBg.offsetHeight, bottom: 'auto' });
 
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
@@ -56,15 +55,15 @@ const R2 = import.meta.env.VITE_R2_PUBLIC_URL;
       },
     })
     .to(preloaderBg, {
-      top: naturalTop,
-      height: naturalHeight,
-      duration: isMobile ? 0.8 : 1,
-      ease: 'power3.inOut',
+      scaleY: 0,
+      transformOrigin: 'center center',
+      duration: isMobile ? 1.2 : 1,
+      ease: isMobile ? 'power2.inOut' : 'power3.inOut',
     })
     .to(logo, {
       x: 0, y: 0,
       duration: isMobile ? 0.9 : 1.3,
-      ease: 'power3.inOut',
+      ease: isMobile ? 'power2.inOut' : 'power3.inOut',
     }, 0)
     .to('.char-inner', {
       xPercent: 0,
@@ -133,10 +132,11 @@ const R2 = import.meta.env.VITE_R2_PUBLIC_URL;
 // ── End Introduction Overlay ──
 
 // ── Render projects from Sanity, set up scroll effects ──
-const container  = document.getElementById('projects');
-const navEl      = document.querySelector('nav');
-const navTitle   = document.querySelector('.nav-project-title');
-const viewToggle = document.querySelector('.view-toggle');
+const container    = document.getElementById('projects');
+const navEl        = document.querySelector('nav');
+const navWrapper   = document.querySelector('.nav-wrapper');
+const navTitle     = document.querySelector('.nav-project-title');
+const viewToggle   = document.querySelector('.view-toggle');
 
 gsap.set(navTitle, { opacity: 0, y: 6 });
 gsap.set(viewToggle, { autoAlpha: 0 });
@@ -174,14 +174,15 @@ fetchProjects().then(projects => {
       container.appendChild(section);
 
       if (item.type === 'video') {
+        const video = /** @type {HTMLVideoElement} */ (el);
         ScrollTrigger.create({
           trigger: section,
           start: 'top 80%',
           end: 'bottom 20%',
-          onEnter:      () => el.play().catch(() => {}),
-          onEnterBack:  () => el.play().catch(() => {}),
-          onLeave:      () => el.pause(),
-          onLeaveBack:  () => el.pause(),
+          onEnter:      () => video.play().catch(() => {}),
+          onEnterBack:  () => video.play().catch(() => {}),
+          onLeave:      () => video.pause(),
+          onLeaveBack:  () => video.pause(),
         });
       }
     });
@@ -218,16 +219,18 @@ fetchProjects().then(projects => {
       trigger: firstSection,
       start: 'top 50%',
       onEnter: () => {
-        gsap.to(navEl.querySelectorAll('a.nav-item'), { opacity: 0, y: -6, duration: 0.18, ease: 'power2.out', pointerEvents: 'none' });
-        gsap.to(navTitle, { opacity: 1, y: 0, duration: 0.18, ease: 'power2.out' });
+        navEl.classList.add('nav--feed-active');
         if (!document.documentElement.classList.contains('list-view-mode')) {
+          gsap.to(navEl.querySelectorAll('a.nav-item'), { opacity: 0, y: -6, duration: 0.18, ease: 'power2.out' });
+          gsap.to(navTitle, { opacity: 1, y: 0, duration: 0.18, ease: 'power2.out' });
           gsap.to(viewToggle, { autoAlpha: 1, duration: 0.18, ease: 'power2.out' });
         }
       },
       onLeaveBack: () => {
-        gsap.to(navEl.querySelectorAll('a.nav-item'), { opacity: 1, y: 0, duration: 0.18, ease: 'power2.out', pointerEvents: 'auto' });
-        gsap.to(navTitle, { opacity: 0, y: 6, duration: 0.18, ease: 'power2.out' });
+        navEl.classList.remove('nav--feed-active');
         if (!document.documentElement.classList.contains('list-view-mode')) {
+          gsap.to(navEl.querySelectorAll('a.nav-item'), { opacity: 1, y: 0, duration: 0.18, ease: 'power2.out' });
+          gsap.to(navTitle, { opacity: 0, y: 6, duration: 0.18, ease: 'power2.out' });
           gsap.to(viewToggle, { autoAlpha: 0, duration: 0.18, ease: 'power2.out' });
         }
       },
@@ -252,7 +255,6 @@ fetchProjects().then(projects => {
     const projectsEl = document.getElementById('projects');
     const heroEl     = document.querySelector('.page-section-full');
     const html       = document.documentElement;
-    const navWrapper = document.querySelector('.nav-wrapper');
 
     let built = false;
 
@@ -265,6 +267,8 @@ fetchProjects().then(projects => {
     prevVid.loop        = true;
     preview.append(prevImg, prevVid);
     document.body.appendChild(preview);
+
+    const navLinks = navEl.querySelectorAll('a.nav-item');
 
     function showPreview(type, src) {
       if (type === 'image') {
@@ -400,6 +404,10 @@ fetchProjects().then(projects => {
       listBtn.classList.add('is-active');
       feedBtn.classList.remove('is-active');
       gsap.set(viewToggle, { autoAlpha: 1 });
+      if (navEl.classList.contains('nav--feed-active')) {
+        gsap.to(navLinks, { opacity: 1, y: 0, duration: 0.18, ease: 'power2.out' });
+        gsap.to(navTitle, { opacity: 0, y: 6, duration: 0.18, ease: 'power2.out' });
+      }
     }
 
     function enterFeed() {
@@ -412,6 +420,10 @@ fetchProjects().then(projects => {
       listBtn.classList.remove('is-active');
       hidePreview();
       if (built) listEl.querySelectorAll('.list-row.is-expanded').forEach(r => collapseRow(r));
+      if (navEl.classList.contains('nav--feed-active')) {
+        gsap.to(navLinks, { opacity: 0, y: -6, duration: 0.18, ease: 'power2.out' });
+        gsap.to(navTitle, { opacity: 1, y: 0, duration: 0.18, ease: 'power2.out' });
+      }
       const firstSection = container.querySelector('.project-section');
       const pastTrigger = firstSection && firstSection.getBoundingClientRect().top < window.innerHeight * 0.5;
       gsap.set(viewToggle, { autoAlpha: pastTrigger ? 1 : 0 });
